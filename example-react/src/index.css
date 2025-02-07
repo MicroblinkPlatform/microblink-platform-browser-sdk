@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) Microblink. All rights reserved. This code is provided for
+ * use as-is and may not be copied, modified, or redistributed.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: "Oswald";
+    src: url("/font/Oswald.ttf") format("truetype"),;
+}
+
+@font-face {
+    font-family: "Roboto Flex";
+    src: url("/font/RobotoFlex.ttf") format("truetype"),;
+}

@@ -1,0 +1,120 @@
+<!--
+  Copyright (c) Microblink. All rights reserved. This code is provided for
+  use as-is and may not be copied, modified, or redistributed.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="w-screen h-screen p-12">
+        <h1 class="text-xl mb-12">IDV Web SDK Flow Vanilla example</h1>
+        <form
+        id="idv-config"
+        >
+          <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div>
+              <label
+                htmlFor="workflowId"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Workflow ID
+              </label>
+              <input
+                type="text"
+                id="workflowId"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="apiUrl"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Proxy URL
+              </label>
+              <input
+                type="text"
+                id="apiUrl"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="locales"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Select localization
+              </label>
+              <select
+                defaultValue="EN"
+                id="locales"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              >
+                <option>Choose a country</option>
+                <option value="EN">English</option>
+                <option value="DE">German</option>
+                <option value="HR">Croatian</option>
+                <option value="ES">Spanish</option>
+              </select>
+            </div>
+            <div>
+              <label
+                htmlFor="locales"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Accent color
+              </label>
+              <input id="color" defaultValue="#0062F2" type="color" />
+            </div>
+            <div>
+              <label
+                htmlFor="locales"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Button border radius
+              </label>
+              <input
+                type="text"
+                id="buttonBorderRadius"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="locales"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Font family
+              </label>
+              <select
+                defaultValue="Default"
+                id="fontFamily"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              >
+                <option value="Default">Default</option>
+                <option value="Oswald">Oswald</option>
+                <option value="Roboto Flex">Roboto</option>
+              </select>
+            </div>
+          </div>
+          
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >
+            Start
+          </button>
+        </form>
+      <div id="idv-container"></div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

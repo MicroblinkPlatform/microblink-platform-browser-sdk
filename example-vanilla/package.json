@@ -1,0 +1,21 @@
+{
+  "name": "example-vanilla",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@microblink/platform-sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "resolve-package-path": "^4.0.3",
+    "tailwindcss": "^3.4.14",
+    "vite": "^5.4.8"
+  }
+}
