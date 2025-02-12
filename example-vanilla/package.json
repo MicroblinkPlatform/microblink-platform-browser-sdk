@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@microblink/platform-sdk": "workspace:*"
+    "@microblink/platform-sdk": "file:../microblink-platform-sdk.tgz"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

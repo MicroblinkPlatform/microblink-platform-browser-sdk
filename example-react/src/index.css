@@ -7,6 +7,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #142641;
+}
+
 
 @font-face {
     font-family: "Oswald";

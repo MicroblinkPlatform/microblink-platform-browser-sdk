@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@microblink/platform-sdk": "workspace:*",
+    "@microblink/platform-sdk": "file:../microblink-platform-sdk.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-simple-code-editor": "^0.14.1"

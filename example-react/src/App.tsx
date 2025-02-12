@@ -10,6 +10,7 @@ import {
 import { useState } from 'react';
 import Editor from 'react-simple-code-editor';
 
+import { Logo } from './Logo';
 import { generateThemeFromAccentColor } from './accent-utils';
 import { LocalizationKey, getTranslationMessages } from './translations';
 
@@ -117,10 +118,15 @@ function App() {
   };
 
   return (
-    <div className="w-screen h-screen p-12 container mx-auto">
-      <h1 className="text-xl mb-12">IDV Web SDK Flow example</h1>
+    <div className="p-4 md:p-12 container w-[90%] md:w-screen mx-auto bg-white rounded-2xl my-10">
+      <div className="flex flex-col md:flex-row gap-4 items-center mb-8">
+        <Logo />
+        <div className="hidden md:block h-10 w-[2px] bg-black" />
+        <h1 className="ml-4 text-3xl text-center">Platform Browser SDK</h1>
+      </div>
+
       <form onSubmit={handleFormSubmit}>
-        <div className="grid gap-6 mb-6 md:grid-cols-2">
+        <div className="flex flex-col md:grid gap-6 mb-6 sm:grid-cols-1 md:grid-cols-3">
           <div>
             <label
               htmlFor="workflowId"
@@ -170,15 +176,7 @@ function App() {
               <option value="ES">Spanish</option>
             </select>
           </div>
-          <div>
-            <label
-              htmlFor="locales"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Accent color
-            </label>
-            <input id="color" defaultValue="#0062F2" type="color" />
-          </div>
+
           <div>
             <label
               htmlFor="locales"
@@ -208,6 +206,15 @@ function App() {
               <option value="Oswald">Oswald</option>
               <option value="Roboto Flex">Roboto</option>
             </select>
+          </div>
+          <div>
+            <label
+              htmlFor="locales"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Accent color
+            </label>
+            <input id="color" defaultValue="#0062F2" type="color" />
           </div>
           <div className="col-span-2">
             <label
@@ -251,20 +258,21 @@ function App() {
 
         <button
           type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Start
         </button>
       </form>
-      <IdvFlow
-        isVisible={showIdvFlow}
-        {...sdkProps}
-        translationsOverride={getTranslationMessages(localizationKey)}
-        themeOverride={createThemeOverride()}
-        onExit={() => {
-          setShowIdvFlow(false);
-        }}
-      />
+      {showIdvFlow ? (
+        <IdvFlow
+          {...sdkProps}
+          translationsOverride={getTranslationMessages(localizationKey)}
+          themeOverride={createThemeOverride()}
+          onExit={() => {
+            setShowIdvFlow(false);
+          }}
+        />
+      ) : null}
     </div>
   );
 }

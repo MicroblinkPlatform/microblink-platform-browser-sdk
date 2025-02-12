@@ -33,12 +33,7 @@ import { IdvFlow } from '@microblink/platform-sdk/react';
 
 // Render component where applicable
 
-const [showIdvFlow, setShowIdvFlow] = useState(false);
-
-// Render idv flow component when applicable...
-
 <IdvFlow
-     isVisible={showIdvFlow}
      workflowId="{id-of-workflow-to-use}"
      proxyConfig={{
          url: '{url-to-your-proxy-service}'
@@ -49,7 +44,7 @@ const [showIdvFlow, setShowIdvFlow] = useState(false);
 />
 ```
 
-When `isVisible` prop is set to `true`, IDV flow will render full screen modal above web app content and it will capture the focus.
+When component is rendered it will show as full screen modal above web app content and it will capture the focus, triggering the start of identity verification flow.
 
 ### Vanilla integration
 
@@ -81,7 +76,6 @@ Configuration properties for both versions of integration are the same and expla
 | `translationsOverride` | [`TranslationMessages`](#translating-the-sdk)                | No       | Options to override default English text in the app                 |
 | `onExit`               | `(status: 'completed' \| 'aborted') => void`                 | No       | Callback which is called when flow is either finished or user exits |
 
-For React version, `isVisible` prop is also required and it should be set to `true` when you want to show IDV flow.
 For Vanilla version, `target` can be defined to control where in the DOM the content will be placed.
 
 ### Defining communication with proxy service
