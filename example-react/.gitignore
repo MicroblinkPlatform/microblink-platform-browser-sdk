@@ -25,3 +25,5 @@ dist-ssr
 
 public/resources
 lib/
+
+.env*

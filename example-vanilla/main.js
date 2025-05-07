@@ -22,8 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = e.currentTarget;
 
     const idvParams = {
-      proxyConfig: { url: form.elements.apiUrl.value },
-      workflowId: form.elements.workflowId.value,
+      proxyConfig: {
+        url: form.elements.apiUrl.value,
+        workflowId: form.elements.workflowId.value,
+      },
       localizationKey: form.elements.locales.value,
       accentColor:
         form.elements.color.value === '#0062F2'
@@ -57,10 +59,23 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     createIdvFlow({
-      proxyConfig: idvParams.proxyConfig,
-      workflowId: idvParams.workflowId,
+      apiConfig: idvParams.proxyConfig,
+      consentData: {
+        userId: 'idv-web-sdk-vanilla-example',
+        note: '',
+        givenOn: new Date().toISOString(),
+        isTrainingAllowed: true,
+        isProcessingStoringAllowed: true,
+      },
       themeOverride: getThemeOverrideObject(),
       translationsOverride: getTranslationMessages(idvParams.localizationKey),
+      onTransactionFinished: (result) => {
+        console.log('Transaction ID: ', result.transactionId);
+        console.log('Transaction verification status: ', result.status);
+      },
+      onAbort: () => {
+        console.log('User aborted Transaction flow');
+      },
     });
   });
 });

@@ -24,10 +24,9 @@ export default defineConfig({
 });
 
 function copyResources() {
-  const packagePath = resolvePackagePath(
-    '@microblink/platform-sdk',
-    '.',
-  )?.replace('/package.json', '');
+  const packagePath = resolvePackagePath('@microblink/platform-sdk', '.')
+    ?.replace('\\package.json', '')
+    ?.replace('/package.json', '');
 
   const resourcesPath = `${packagePath}/dist/resources`;
   const destinationPath = 'public/resources';

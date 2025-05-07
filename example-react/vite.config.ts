@@ -4,11 +4,11 @@ import resolvePackagePath from 'resolve-package-path';
 import { ServerOptions, defineConfig } from 'vite';
 
 const serverOptions: ServerOptions = {
-  port: 3000,
+  port: 8080,
   headers: {
     'Cross-Origin-Embedder-Policy': 'require-corp',
     'Cross-Origin-Opener-Policy': 'same-origin',
-    'cache-control': 'max-age=300',
+    'cache-control': 'public, max-age=31536000, immutable',
   },
 };
 
@@ -24,10 +24,11 @@ export default defineConfig({
 });
 
 function copyResources() {
-  const packagePath = resolvePackagePath(
-    '@microblink/platform-sdk',
-    '.',
-  )?.replace('/package.json', '');
+  const packagePath = resolvePackagePath('@microblink/platform-sdk', '.')
+    ?.replace('\\package.json', '')
+    ?.replace('/package.json', '');
+
+  console.log('PACKAGE PATH', packagePath);
 
   const resourcesPath = `${packagePath}/dist/resources`;
   const destinationPath = 'public/resources';
