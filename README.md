@@ -61,8 +61,8 @@ import { createIdvFlow } from '@microblink/platform-sdk/vanilla';
 createIdvFlow({
   proxyConfig: {
     url: '{url-to-your-proxy-service}',
+    workflowId: '{id-of-workflow-to-use}',
   },
-  workflowId: '{id-of-workflow-to-use}',
   onTransactionFinished: (result) => {
     console.log('Transaction ID: ', result.transactionId);
     console.log('Transaction verification status: ', result.status);
