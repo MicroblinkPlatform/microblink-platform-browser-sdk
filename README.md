@@ -38,6 +38,13 @@ import { IdvFlow } from '@microblink/platform-sdk/react';
       url: '{url-to-your-proxy-service}'
       workflowId: '{id-of-workflow-to-use}'
     }}
+    consentData={{
+      userId: '{userId}',
+      note: '{note}',
+      givenOn: new Date().toISOString(),
+      isTrainingAllowed: true,
+      isProcessingStoringAllowed: true,
+    }}
     onTransactionFinished: (result) => {
       console.log('Transaction ID: ', result.transactionId);
       console.log('Transaction verification status: ', result.status);
@@ -62,6 +69,13 @@ createIdvFlow({
   proxyConfig: {
     url: '{url-to-your-proxy-service}',
     workflowId: '{id-of-workflow-to-use}',
+  },
+  consentData={
+    userId: '{userId}',
+    note: '{note}',
+    givenOn: new Date().toISOString(),
+    isTrainingAllowed: true,
+    isProcessingStoringAllowed: true,
   },
   onTransactionFinished: (result) => {
     console.log('Transaction ID: ', result.transactionId);
