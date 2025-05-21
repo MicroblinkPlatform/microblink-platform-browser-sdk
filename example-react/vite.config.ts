@@ -8,7 +8,6 @@ const serverOptions: ServerOptions = {
   headers: {
     'Cross-Origin-Embedder-Policy': 'require-corp',
     'Cross-Origin-Opener-Policy': 'same-origin',
-    'cache-control': 'public, max-age=31536000, immutable',
   },
 };
 

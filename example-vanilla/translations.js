@@ -64,6 +64,7 @@ const germanTranslations = {
     back: 'Zurück',
     cancel: 'Abbrechen',
     yesContinue: 'Ja, fortfahren',
+    startOver: 'Von vorne beginnen',
   },
   statuses: {
     cameraLoading: 'Kamera wird geladen',
@@ -191,6 +192,7 @@ const germanTranslations = {
     deleteButtonText: 'Löschen',
     fileDropText: 'Datei hier ablegen',
     submitButtonText: 'Absenden',
+    clearButtonText: 'Löschen',
     requiredFieldMissing: 'Dies ist ein Pflichtfeld.',
     tooLong: 'Dieser Wert ist zu lang.',
     invalidInteger: 'Bitte geben Sie eine gültige ganze Zahl ein.',
@@ -234,6 +236,9 @@ const germanTranslations = {
     identityVerifyingTitle: 'Danke! Wir überprüfen Ihre Identität jetzt',
     identityVerifyingCaption:
       'Wir haben alles, was wir brauchen. Wir benachrichtigen Sie, sobald es abgeschlossen ist.',
+    errorTitle: 'Etwas ist schiefgelaufen',
+    errorCaption:
+      'Die Überprüfung konnte nicht abgeschlossen werden. Versuchen wir die Überprüfung noch einmal.',
   },
 };
 
@@ -294,6 +299,7 @@ const croatianTranslations = {
     back: 'Natrag',
     cancel: 'Odustani',
     yesContinue: 'Da, nastavi',
+    startOver: 'Započni iznova',
   },
   statuses: {
     cameraLoading: 'Učitavanje kamere',
@@ -417,6 +423,7 @@ const croatianTranslations = {
     deleteButtonText: 'Izbriši',
     fileDropText: 'Povuci datoteku ovdje',
     submitButtonText: 'Pošalji',
+    clearButtonText: 'Obriši',
     requiredFieldMissing: 'Ovo polje je obavezno.',
     tooLong: 'Ova vrijednost je predugačka.',
     invalidInteger: 'Molimo unesite valjani cijeli broj.',
@@ -457,6 +464,8 @@ const croatianTranslations = {
     identityVerifyingTitle: 'Hvala! Sada potvrđujemo vaš identitet',
     identityVerifyingCaption:
       'Imamo sve što nam treba. Obavijestit ćemo vas čim završimo.',
+    errorTitle: 'Došlo je do greške',
+    errorCaption: 'Nismo mogli dovršiti provjeru. Pokušajmo ponovno.',
   },
 };
 
@@ -519,6 +528,7 @@ const spanishTranslations = {
     back: 'Atrás',
     cancel: 'Cancelar',
     yesContinue: 'Sí, continuar',
+    startOver: 'Comenzar de nuevo',
   },
   statuses: {
     cameraLoading: 'Cargando cámara',
@@ -641,6 +651,7 @@ const spanishTranslations = {
     deleteButtonText: 'Eliminar',
     fileDropText: 'Arrastra el archivo aquí',
     submitButtonText: 'Enviar',
+    clearButtonText: 'Limpiar',
     requiredFieldMissing: 'Este campo es obligatorio.',
     tooLong: 'Este valor es demasiado largo.',
     invalidInteger: 'Por favor, introduce un número entero válido.',
@@ -682,6 +693,9 @@ const spanishTranslations = {
     identityVerifyingTitle: '¡Gracias! Estamos verificando tu identidad',
     identityVerifyingCaption:
       'Ya tenemos todo lo que necesitamos. Te notificaremos tan pronto como terminemos.',
+    errorTitle: 'Algo salió mal',
+    errorCaption:
+      'No pudimos completar la verificación. Intentémosla de nuevo.',
   },
 };
 
