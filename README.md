@@ -25,11 +25,11 @@ Clone the repository and you're ready to run the apps now.
 1. Navigate to one of the example apps.
 2. Install its dependencies:
    ```
-   npm i
+   npm install
    ```
 3. Run the app:
    ```
-   vite
+   npm run dev
    ```
 
 The apps will run on `localhost`, port 8080 (`example-react`) or 3000 (`example-vanilla`).
