@@ -125,7 +125,7 @@ const germanTranslations = {
     cameraFeedbackBarcodeMessage: 'Scannen Sie den Barcode',
     cameraFeedbackMoveFarther: 'Weiter weg bewegen',
     cameraFeedbackMoveCloser: 'Näher heran bewegen',
-    cameraFeedbackAdjustAngle: 'Winkel anpassen',
+    cameraFeedbackAdjustAngle: 'Dokument parallel zum Telefon aufbewahren',
     cameraFeedbackBlur: 'Still halten',
     cameraFeedbackGlare:
       'Kippen oder bewegen Sie das Dokument, um Reflexionen zu entfernen',
@@ -170,7 +170,7 @@ const germanTranslations = {
     cameraFeedbackBarcodeMessage: 'Barcode scannen',
     cameraFeedbackMoveFarther: 'Weiter entfernen',
     cameraFeedbackMoveCloser: 'Näher herangehen',
-    cameraFeedbackAdjustAngle: 'Winkel anpassen',
+    cameraFeedbackAdjustAngle: 'Karte parallel zum Bildschirm halten',
     cameraFeedbackWrongSide: 'Karte umdrehen',
     cameraFeedbackBarcode: 'Barcode scannen',
     initializationError:
@@ -203,8 +203,10 @@ const germanTranslations = {
     invalidPhoneNumber: 'Bitte geben Sie eine gültige Telefonnummer ein.',
     invalidSsn: 'Bitte geben Sie eine gültige Sozialversicherungsnummer ein.',
     invalidFileType: 'Ungültiger Dateityp.',
-    fileTooLarge: 'Datei ist zu groß.',
+    fileTooLarge:
+      'Die Datei ist zu groß. Bitte laden Sie eine Datei hoch, die kleiner als ',
     uploadFailed: 'Hochladen fehlgeschlagen.',
+    optionalHelperText: 'optional',
   },
   home: {
     title: 'Lassen Sie uns Ihre Identität überprüfen',
@@ -359,7 +361,7 @@ const croatianTranslations = {
     cameraFeedbackBarcodeMessage: 'Skenirajte barkod',
     cameraFeedbackMoveFarther: 'Udaljite se',
     cameraFeedbackMoveCloser: 'Približite se',
-    cameraFeedbackAdjustAngle: 'Podesite kut',
+    cameraFeedbackAdjustAngle: 'Držite dokument paralelno s telefonom',
     cameraFeedbackBlur: 'Držite mirno',
     cameraFeedbackGlare:
       'Nagnite ili pomaknite dokument kako biste uklonili odsjaj',
@@ -403,7 +405,7 @@ const croatianTranslations = {
     cameraFeedbackBarcodeMessage: 'Skenirajte barkod',
     cameraFeedbackMoveFarther: 'Udaljite se',
     cameraFeedbackMoveCloser: 'Približite se',
-    cameraFeedbackAdjustAngle: 'Podesite kut',
+    cameraFeedbackAdjustAngle: 'Držite karticu paralelno s ekranom',
     cameraFeedbackWrongSide: 'Okrenite karticu',
     cameraFeedbackBarcode: 'Skenirajte barkod',
     initializationError:
@@ -434,8 +436,9 @@ const croatianTranslations = {
     invalidPhoneNumber: 'Molimo unesite valjani telefonski broj.',
     invalidSsn: 'Molimo unesite valjani OIB.',
     invalidFileType: 'Nevažeća vrsta datoteke.',
-    fileTooLarge: 'Datoteka je prevelika.',
+    fileTooLarge: 'Datoteka je prevelika. Molimo prenesite datoteku manju od ',
     uploadFailed: 'Učitavanje nije uspjelo.',
+    optionalHelperText: 'opcionalno',
   },
   home: {
     title: 'Potvrdimo vaš identitet',
@@ -589,7 +592,7 @@ const spanishTranslations = {
     cameraFeedbackBarcodeMessage: 'Escanea el código de barras',
     cameraFeedbackMoveFarther: 'Aléjate más',
     cameraFeedbackMoveCloser: 'Acércate más',
-    cameraFeedbackAdjustAngle: 'Ajusta el ángulo',
+    cameraFeedbackAdjustAngle: 'Mantenga el documento paralelo al teléfono',
     cameraFeedbackBlur: 'Mantente quieto',
     cameraFeedbackGlare: 'Inclina o mueve el documento para eliminar reflejos',
     cameraFeedbackWrongSide: 'Voltea el documento',
@@ -633,7 +636,7 @@ const spanishTranslations = {
     cameraFeedbackBarcodeMessage: 'Escanear el código de barras',
     cameraFeedbackMoveFarther: 'Aléjate más',
     cameraFeedbackMoveCloser: 'Acércate más',
-    cameraFeedbackAdjustAngle: 'Ajustar el ángulo',
+    cameraFeedbackAdjustAngle: 'Mantén la tarjeta paralela a la pantalla',
     cameraFeedbackWrongSide: 'Girar la tarjeta',
     cameraFeedbackBarcode: 'Escanear el código de barras',
     initializationError:
@@ -666,7 +669,9 @@ const spanishTranslations = {
     invalidSsn: 'Por favor, introduce un número de seguro social válido.',
     invalidFileType: 'Tipo de archivo no válido.',
     fileTooLarge: 'El archivo es demasiado grande.',
-    uploadFailed: 'Error al subir.',
+    uploadFailed:
+      'El archivo es demasiado grande. Por favor, suba un archivo más pequeño que ',
+    optionalHelperText: 'opcionalno',
   },
   home: {
     title: 'Verifiquemos tu identidad',
