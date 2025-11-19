@@ -51,7 +51,7 @@ jobs:
           echo "PACKAGE_VERSION=$(npm show ${{ env.PACKAGE_NAME }} version)" >> $GITHUB_ENV
 
       - name: Create Pull Request
-        uses: peter-evans/create-pr@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "chore: update ${{ env.PACKAGE_NAME }} to latest version"
           title: "Update ${{ env.PACKAGE_NAME }} to ${{ env.PACKAGE_VERSION }}"
