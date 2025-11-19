@@ -16,36 +16,39 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.14.0
-      
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "pnpm"
+          cache: "npm"
 
-      - name: Update to the latest version of the SDK
+      - name: Update example-react to the latest version of the SDK
         run: |
-          echo "Updating React example..."
-          pnpm --prefix example-react add ${{ env.PACKAGE_NAME }}@latest
+          cd example-react
+          echo "Installing dependencies..."
+          npm ci
           
-          echo "Updating Vanilla example..."
-          pnpm --prefix example-vanila add ${{ env.PACKAGE_NAME }}@latest
+          echo "Updating package..."
+          npm install ${{ env.PACKAGE_NAME }}@latest
+          
+          echo "Building..."
+          npm run build
+          
+      - name: Update example-vanilla to the latest version of the SDK
+        run: |
+          cd example-vanilla
+          echo "Installing dependencies..."
+          npm ci 
+          
+          echo "Updating package..."
+          npm install ${{ env.PACKAGE_NAME }}@latest
+          
+          echo "Building..."
+          npm run build
 
-      - name: Build example apps
-        run: |
-          echo "Building React example..."
-          pnpm --prefix example-react build
-          
-          echo "Building Vanilla example..."
-          pnpm --prefix example-vanila build 
-      
       - name: Get the latest version
         run: |
-          echo "PACKAGE_VERSION=$(pnpm show ${{ env.PACKAGE_NAME }} version)" >> $GITHUB_ENV
+          echo "PACKAGE_VERSION=$(npm show ${{ env.PACKAGE_NAME }} version)" >> $GITHUB_ENV
 
       - name: Create Pull Request
         uses: peter-evans/create-pr@v6
