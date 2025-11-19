@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
 
       - name: Update example-react to the latest version of the SDK
         run: |
