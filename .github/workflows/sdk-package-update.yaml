@@ -47,6 +47,18 @@ jobs:
           echo "Building..."
           npm run build
 
+      - name: Update example-vanilla-with-d2d to the latest version of the SDK
+        run: |
+          cd example-vanilla-with-d2d
+          echo "Installing dependencies..."
+          npm ci 
+          
+          echo "Updating package..."
+          npm install ${{ env.PACKAGE_NAME }}@latest
+          
+          echo "Building..."
+          npm run build
+
       - name: Get the latest version
         run: |
           echo "PACKAGE_VERSION=$(npm show ${{ env.PACKAGE_NAME }} version)" >> $GITHUB_ENV
