@@ -140,6 +140,8 @@ const germanTranslations = {
     scanningNotAvailable: 'Scannen ist nicht verfügbar.',
     modalWindowClose: 'Schließen',
     documentTooCloseToEdge: 'Bewegen Sie das Dokument vom Rand weg',
+    cameraFeedbackScanLastPageBarcode:
+      'Scannen Sie die letzte Seite mit dem Barcode',
   },
   cardScanning: {
     cameraLoading: 'Kamera wird geladen',
@@ -375,6 +377,8 @@ const croatianTranslations = {
     scanningNotAvailable: 'Skeniranje nije dostupno.',
     modalWindowClose: 'Zatvori',
     documentTooCloseToEdge: 'Pomaknite dokument od ruba',
+    cameraFeedbackScanLastPageBarcode:
+      'Skenirajte cijelu posljednju stranicu s barkodom.',
   },
   cardScanning: {
     cameraLoading: 'Učitavanje kamere',
@@ -606,6 +610,8 @@ const spanishTranslations = {
     scanningNotAvailable: 'Escaneo no disponible.',
     modalWindowClose: 'Cerrar',
     documentTooCloseToEdge: 'Mueve el documento lejos del borde',
+    cameraFeedbackScanLastPageBarcode:
+      'Escanea toda la última página con el código de barras.',
   },
   cardScanning: {
     cameraLoading: 'Cargando cámara',
