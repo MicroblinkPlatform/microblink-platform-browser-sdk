@@ -1,3 +1,39 @@
+
+## v1.6.6
+
+Includes improvement on the feedback messaging related to the scanning of the last passport page with barcode
+
+## v1.6.5
+
+### Chore
+
+- Updated with the new BlinkID version
+
+## v1.6.4
+
+### Fix
+
+- adjusted document scanning settings
+
+## v1.6.3
+
+### Improvements
+
+- Improved the default camera-picking algorithm to choose the optimal camera for document scanning.
+- Extended the document scanning timeout from 10 seconds to 25 seconds to accommodate slower capture scenarios.
+
+## v1.6.2
+
+### Fix
+
+- Camera preview layout shifting on Selfie Face Match for iOS Safari
+
+## v1.6.1
+
+### Fix
+
+- lightweight BlinkID support
+
 ## v1.6.0
 
 ### Updates
