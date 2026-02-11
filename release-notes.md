@@ -1,3 +1,22 @@
+## v1.7.0
+
+### Breaking changes
+
+- **`consentData.givenOn` type change**: The `givenOn` property in `consentData` now requires a JavaScript `Date` object instead of a `string`.
+- **`apiConfig.url` replaced with `proxy` object**. Previously, you provided the full API transaction endpoint for your proxy, for example: `https://www.myproxy.com/api/v1/transaction`. Now, `proxy.baseUrl` accepts your proxy's base domain + API suffix, **without** the final URL path. For example: `https://www.myproxy.com/api/v1`. The SDK then constructs the rest of the URL based on the action that is performed. Here's how the `proxy` object looks like:
+
+    ```typescript
+    proxy: {
+      baseUrl: string;
+      startTransactionPath?: string; // Default: '/transaction'
+      cancelWorkflowPath?: string; // Default: '/initialize/{workflowId}/cancel'
+      workflowInfoPath?: string; // Default: '/initialize/{workflowId}/info'
+    }
+    ```
+
+### Improvements
+
+- **Fallback consent UI**: If the consent object has `isProcessingStoringAllowed` set to `false`, users will now be prompted with a fallback consent UI form where they can accept or reject. If rejected, the transaction will be terminated.
 
 ## v1.6.6
 
@@ -44,7 +63,7 @@ Includes improvement on the feedback messaging related to the scanning of the la
 
 ### What's new
 
-- We've added kiosk mode support. This is helpful in applications where a tablet device is mounted on a wall, and your users are expected to scan their documents using the front camera only. 
+- We've added kiosk mode support. This is helpful in applications where a tablet device is mounted on a wall, and your users are expected to scan their documents using the front camera only.
 - You can now upload PDF files when using the manual input capability.
 - The SDK is now available on [NPM](https://www.npmjs.com/package/@microblink/platform-sdk).
 
@@ -68,12 +87,12 @@ To read more about the new features supported by these upgrades, see the release
 
 - Improved extraction of first and middle names for certain ID types
 - Face capture now performs additional validation checks:
-  - Eyes closed
-  - Image too dark
-  - Face blurry
-  - Mouth open
-  - Sunglasses detected
-  - Improved card scanning performance and reliability
+    - Eyes closed
+    - Image too dark
+    - Face blurry
+    - Mouth open
+    - Sunglasses detected
+    - Improved card scanning performance and reliability
 - Enhanced document extraction with additional extracted fields
 
 ## v1.3.0
