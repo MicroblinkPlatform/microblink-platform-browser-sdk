@@ -2,18 +2,13 @@
  * Copyright (c) Microblink. All rights reserved. This code is provided for
  * use as-is and may not be copied, modified, or redistributed.
  */
-import {
-  IdvFlow,
-  IdvFlowProps,
-  ProxyConfig,
-  ThemeOverride,
-} from '@microblink/platform-sdk/react';
-import { useState } from 'react';
-import Editor from 'react-simple-code-editor';
+import { IdvFlow, IdvFlowProps, ProxyConfig, ThemeOverride } from "@microblink/platform-sdk/react";
+import { useState } from "react";
+import Editor from "react-simple-code-editor";
 
-import { Logo } from './Logo';
-import { generateThemeFromAccentColor } from './accent-utils';
-import { LocalizationKey, getTranslationMessages } from './translations';
+import { Logo } from "./Logo";
+import { generateThemeFromAccentColor } from "./accent-utils";
+import { LocalizationKey, getTranslationMessages } from "./translations";
 
 const EXAMPLE_FORM_FIELDS = `
   {
@@ -29,7 +24,7 @@ function Form() {
   const [formValuesDisabled, setFormValuesDisabled] = useState(true);
 
   const [idvFlowParams, setIdvFlowParams] = useState<
-    Pick<IdvFlowProps, 'apiConfig'> & {
+    Pick<IdvFlowProps, "apiConfig"> & {
       localizationKey: LocalizationKey;
       accentColor: string | null;
       buttonBorderRadius: string | null;
@@ -38,13 +33,13 @@ function Form() {
     }
   >({
     apiConfig: {
-      url: import.meta.env.VITE_PROXY_URL,
+      proxy: { baseUrl: import.meta.env.VITE_PROXY_URL },
       workflowId: import.meta.env.VITE_WORKFLOW_ID,
       d2d: { runAddress: import.meta.env.VITE_D2D_RUN_ADDRESS },
     },
     accentColor: null,
     buttonBorderRadius: null,
-    localizationKey: 'EN',
+    localizationKey: "EN",
     fontFamily: null,
     enableD2D: false,
   });
@@ -70,28 +65,22 @@ function Form() {
       try {
         parsedCode = JSON.parse(code);
       } catch {
-        alert('Form fields JSON is not valid.');
+        alert("Form fields JSON is not valid.");
         return;
       }
     }
 
     setIdvFlowParams({
       apiConfig: {
-        url: formElements.apiUrl.value,
+        proxy: { baseUrl: formElements.apiUrl.value },
         formValues: parsedCode !== null ? parsedCode : undefined,
         workflowId: formElements.workflowId.value,
         d2d: { runAddress: import.meta.env.VITE_D2D_RUN_ADDRESS },
       },
       localizationKey: formElements.locales.value as LocalizationKey,
-      accentColor:
-        formElements.color.value === '#0062F2'
-          ? null
-          : formElements.color.value,
+      accentColor: formElements.color.value === "#0062F2" ? null : formElements.color.value,
       buttonBorderRadius: formElements.buttonBorderRadius.value || null,
-      fontFamily:
-        formElements.fontFamily.value === 'Default'
-          ? null
-          : formElements.fontFamily.value,
+      fontFamily: formElements.fontFamily.value === "Default" ? null : formElements.fontFamily.value,
       enableD2D: formElements.enableD2D.checked,
     });
 
@@ -106,9 +95,7 @@ function Form() {
     }
 
     if (idvFlowParams.accentColor !== null) {
-      themeOverride.accent = generateThemeFromAccentColor(
-        idvFlowParams.accentColor,
-      );
+      themeOverride.accent = generateThemeFromAccentColor(idvFlowParams.accentColor);
     }
 
     if (idvFlowParams.fontFamily !== null) {
@@ -129,10 +116,7 @@ function Form() {
       <form onSubmit={handleFormSubmit}>
         <div className="flex flex-col md:grid gap-6 mb-6 sm:grid-cols-1 md:grid-cols-3">
           <div>
-            <label
-              htmlFor="workflowId"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="workflowId" className="block mb-2 text-sm font-medium text-gray-900">
               Workflow ID
             </label>
             <input
@@ -144,14 +128,11 @@ function Form() {
             />
           </div>
           <div>
-            <label
-              htmlFor="apiUrl"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="apiUrl" className="block mb-2 text-sm font-medium text-gray-900">
               Proxy URL
             </label>
             <input
-              defaultValue={(idvFlowParams.apiConfig as ProxyConfig).url}
+              defaultValue={(idvFlowParams.apiConfig as ProxyConfig).proxy.baseUrl}
               type="text"
               id="apiUrl"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -159,10 +140,7 @@ function Form() {
             />
           </div>
           <div>
-            <label
-              htmlFor="locales"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="locales" className="block mb-2 text-sm font-medium text-gray-900">
               Select localization
             </label>
             <select
@@ -179,10 +157,7 @@ function Form() {
           </div>
 
           <div>
-            <label
-              htmlFor="buttonBorderRadius"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="buttonBorderRadius" className="block mb-2 text-sm font-medium text-gray-900">
               Button border radius
             </label>
             <input
@@ -192,10 +167,7 @@ function Form() {
             />
           </div>
           <div>
-            <label
-              htmlFor="fontFamily"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="fontFamily" className="block mb-2 text-sm font-medium text-gray-900">
               Font family
             </label>
             <select
@@ -209,10 +181,7 @@ function Form() {
             </select>
           </div>
           <div>
-            <label
-              htmlFor="color"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="color" className="block mb-2 text-sm font-medium text-gray-900">
               Accent color
             </label>
             <input id="color" defaultValue="#0062F2" type="color" />
@@ -226,10 +195,7 @@ function Form() {
                 onChange={(e) => setFormValuesDisabled(!e.target.checked)}
                 className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
-              <label
-                className="block text-sm font-medium text-gray-900"
-                htmlFor="enabled-checkbox"
-              >
+              <label className="block text-sm font-medium text-gray-900" htmlFor="enabled-checkbox">
                 Enable form values
               </label>
             </div>
@@ -242,7 +208,7 @@ function Form() {
               highlight={(code) => code}
               style={{
                 opacity: formValuesDisabled ? 0.6 : 1,
-                fontFamily: 'monospace',
+                fontFamily: "monospace",
                 fontSize: 12,
               }}
             />
@@ -254,10 +220,7 @@ function Form() {
               type="checkbox"
               className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
-            <label
-              htmlFor="enableD2D"
-              className="block text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="enableD2D" className="block text-sm font-medium text-gray-900">
               Enable Device 2 Device (D2D)
             </label>
           </div>
@@ -275,23 +238,21 @@ function Form() {
           apiConfig={idvFlowParams.apiConfig}
           enableD2D={idvFlowParams.enableD2D}
           consentData={{
-            userId: 'idv-web-sdk-react-example',
-            note: '',
-            givenOn: new Date().toISOString(),
+            userId: "idv-web-sdk-react-example",
+            note: "",
+            givenOn: new Date(),
             isTrainingAllowed: true,
             isProcessingStoringAllowed: true,
           }}
-          translationsOverride={getTranslationMessages(
-            idvFlowParams.localizationKey,
-          )}
+          translationsOverride={getTranslationMessages(idvFlowParams.localizationKey)}
           themeOverride={createThemeOverride()}
           onTransactionFinished={(result) => {
-            console.log('Transaction ID: ', result.transactionId);
-            console.log('Transaction verification status: ', result.status);
+            console.log("Transaction ID: ", result.transactionId);
+            console.log("Transaction verification status: ", result.status);
             setShowIdvFlow(false);
           }}
           onAbort={() => {
-            console.log('User aborted Transaction flow');
+            console.log("User aborted Transaction flow");
             setShowIdvFlow(false);
           }}
         />

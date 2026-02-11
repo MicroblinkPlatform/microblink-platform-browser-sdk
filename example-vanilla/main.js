@@ -2,79 +2,73 @@
  * Copyright (c) Microblink. All rights reserved. This code is provided for
  * use as-is and may not be copied, modified, or redistributed.
  */
-import { createIdvFlow } from '@microblink/platform-sdk/vanilla';
+import { createIdvFlow } from "@microblink/platform-sdk/vanilla";
 
-import { generateThemeFromAccentColor } from './accent-utils';
-import './style.css';
-import { getTranslationMessages } from './translations';
+import { generateThemeFromAccentColor } from "./accent-utils";
+import "./style.css";
+import { getTranslationMessages } from "./translations";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const rootElement = document.querySelector('#idv-container');
-  const configForm = document.querySelector('#idv-config');
+document.addEventListener("DOMContentLoaded", () => {
+  const rootElement = document.querySelector("#idv-container");
+  const configForm = document.querySelector("#idv-config");
 
   if (!configForm || !rootElement) {
-    alert('Missing button or root element');
+    alert("Missing button or root element");
     return;
   }
 
-  configForm.addEventListener('submit', (e) => {
+  configForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const form = e.currentTarget;
 
     const idvParams = {
       proxyConfig: {
-        url: form.elements.apiUrl.value,
+        proxy: { baseUrl: form.elements.apiUrl.value },
         workflowId: form.elements.workflowId.value,
       },
       localizationKey: form.elements.locales.value,
-      accentColor:
-        form.elements.color.value === '#0062F2'
-          ? null
-          : form.elements.color.value,
+      accentColor: form.elements.color.value === "#0062F2" ? null : form.elements.color.value,
       buttonBorderRadius: form.elements.buttonBorderRadius.value || null,
-      fontFamily:
-        form.elements.fontFamily.value === 'Default'
-          ? null
-          : form.elements.fontFamily.value,
+      fontFamily: form.elements.fontFamily.value === "Default" ? null : form.elements.fontFamily.value,
     };
 
     const getThemeOverrideObject = () => {
       const themeOverride = {};
 
       if (idvParams.buttonBorderRadius !== null) {
-        themeOverride.buttonBorderRadius = buttonBorderRadius;
+        themeOverride.buttonBorderRadius = idvParams.buttonBorderRadius;
       }
 
       if (idvParams.accentColor !== null) {
-        themeOverride.accent = generateThemeFromAccentColor(
-          idvParams.accentColor,
-        );
+        themeOverride.accent = generateThemeFromAccentColor(idvParams.accentColor);
       }
 
       if (idvParams.fontFamily !== null) {
-        themeOverride.fontFamily = fontFamily;
+        themeOverride.fontFamily = idvParams.fontFamily;
       }
 
       return themeOverride;
     };
 
-    createIdvFlow({
+    const { unmount } = createIdvFlow({
       apiConfig: idvParams.proxyConfig,
       consentData: {
-        userId: 'idv-web-sdk-vanilla-example',
-        note: '',
-        givenOn: new Date().toISOString(),
+        userId: "idv-web-sdk-vanilla-example",
+        note: "",
+        givenOn: new Date(),
         isTrainingAllowed: true,
         isProcessingStoringAllowed: true,
       },
       themeOverride: getThemeOverrideObject(),
       translationsOverride: getTranslationMessages(idvParams.localizationKey),
       onTransactionFinished: (result) => {
-        console.log('Transaction ID: ', result.transactionId);
-        console.log('Transaction verification status: ', result.status);
+        console.log("Transaction ID: ", result.transactionId);
+        console.log("Transaction verification status: ", result.status);
+        unmount();
       },
       onAbort: () => {
-        console.log('User aborted Transaction flow');
+        console.log("User aborted Transaction flow");
+        unmount();
       },
     });
   });
