@@ -1,3 +1,9 @@
+## v1.7.2
+
+### Fix
+
+- Fixed issue with form values sent on SDK initialization
+
 ## v1.7.0
 
 ### Breaking changes
@@ -87,12 +93,12 @@ To read more about the new features supported by these upgrades, see the release
 
 - Improved extraction of first and middle names for certain ID types
 - Face capture now performs additional validation checks:
-    - Eyes closed
-    - Image too dark
-    - Face blurry
-    - Mouth open
-    - Sunglasses detected
-    - Improved card scanning performance and reliability
+  - Eyes closed
+  - Image too dark
+  - Face blurry
+  - Mouth open
+  - Sunglasses detected
+  - Improved card scanning performance and reliability
 - Enhanced document extraction with additional extracted fields
 
 ## v1.3.0
