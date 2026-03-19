@@ -1,3 +1,17 @@
+## 1.9.0
+
+### New features
+
+- Added support for 2 new capabilities: "Upload & Verify ID" and "Upload Non-ID"
+
+## v1.8.0
+
+### New features
+
+- Added support for overriding `scanUnsupportedBack` and `scanPassportDataPageOnly` on Scan ID and Scan & Verify ID Step
+- Customization of the start, end and progress UI screens
+- `onAbort` callback exposes additional params related to the transaction and step that was aborted, as well as the reason for the abortion.
+
 ## v1.7.2
 
 ### Fix
@@ -11,14 +25,14 @@
 - **`consentData.givenOn` type change**: The `givenOn` property in `consentData` now requires a JavaScript `Date` object instead of a `string`.
 - **`apiConfig.url` replaced with `proxy` object**. Previously, you provided the full API transaction endpoint for your proxy, for example: `https://www.myproxy.com/api/v1/transaction`. Now, `proxy.baseUrl` accepts your proxy's base domain + API suffix, **without** the final URL path. For example: `https://www.myproxy.com/api/v1`. The SDK then constructs the rest of the URL based on the action that is performed. Here's how the `proxy` object looks like:
 
-    ```typescript
-    proxy: {
-      baseUrl: string;
-      startTransactionPath?: string; // Default: '/transaction'
-      cancelWorkflowPath?: string; // Default: '/initialize/{workflowId}/cancel'
-      workflowInfoPath?: string; // Default: '/initialize/{workflowId}/info'
-    }
-    ```
+  ```typescript
+  proxy: {
+    baseUrl: string;
+    startTransactionPath?: string; // Default: '/transaction'
+    cancelWorkflowPath?: string; // Default: '/initialize/{workflowId}/cancel'
+    workflowInfoPath?: string; // Default: '/initialize/{workflowId}/info'
+  }
+  ```
 
 ### Improvements
 
