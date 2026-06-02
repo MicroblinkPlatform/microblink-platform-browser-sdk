@@ -16,6 +16,6 @@
     "vite": "^5.4.8"
   },
   "dependencies": {
-    "@microblink/platform-sdk": "^1.9.0"
+    "@microblink/platform-sdk": "^1.10.0"
   }
 }
