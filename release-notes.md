@@ -3,6 +3,7 @@
 ### Updates
 
 - **BlinkCard upgrade (v2.12.0 → v3000.0.7)**: The BlinkCard package has been upgraded to v3000.0.7, which introduces changes to the translation file for the card scan capability. If you have custom translations for the card scan flow, please update them accordingly. An example translation file can be found in the example apps (`example-react/src/translations.ts`).
+- **BlinkId upgrade (v7.6.3 → v7.8.0)**
 
 ### Bug fixes
 
