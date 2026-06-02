@@ -1,3 +1,14 @@
+## v1.10.0
+
+### Updates
+
+- **BlinkCard upgrade (v2.12.0 → v3000.0.7)**: The BlinkCard package has been upgraded to v3000.0.7, which introduces changes to the translation file for the card scan capability. If you have custom translations for the card scan flow, please update them accordingly. An example translation file can be found in the example apps (`example-react/src/translations.ts`).
+
+### Bug fixes
+
+- Fixed an issue where the `target` property (HTML element) was not being used for mounting the SDK.
+- Fixed a visual bug where some buttons were not styled according to the theme override passed by the SDK user.
+
 ## 1.9.0
 
 ### New features

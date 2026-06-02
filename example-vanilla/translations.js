@@ -2,6 +2,7 @@
  * Copyright (c) Microblink. All rights reserved. This code is provided for
  * use as-is and may not be copied, modified, or redistributed.
  */
+
 const germanTranslations = {
   d2d: {
     title: "Zum Mobilgerät wechseln, um die Verifizierung fortzusetzen.",
@@ -95,6 +96,7 @@ const germanTranslations = {
     lookDirectylIntoCamera: "Schauen Sie direkt in die Kamera",
     onlyOneFaceShouldBeVisible: "Es sollte nur ein Gesicht sichtbar sein",
     keepStill: "Stillhalten",
+    cameraStarting: "Kamera wird gestartet...",
   },
   documentScanning: {
     cameraLoading: "Kamera wird geladen",
@@ -141,41 +143,92 @@ const germanTranslations = {
   },
   cardScanning: {
     cameraLoading: "Kamera wird geladen",
-    helpButtonTooltip: "Benötigen Sie Hilfe?",
-    helpButtonBack: "Zurück",
-    helpButtonNext: "Weiter",
-    helpButtonDone: "Fertig",
-    helpButtonStartScanning: "Scannen starten",
-    helpDocInfoTitle: "Zuerst die Kartennummer scannen",
-    helpDocInfoDescription:
-      "Die Kartennummer ist normalerweise 16-stellig und sollte entweder gedruckt oder in erhabenen Ziffern auf der Karte geprägt sein. Stellen Sie sicher, dass die Karte gut beleuchtet ist und alle Details sichtbar sind.",
-    helpDocKeepDetailsVisibleTitle: "Alle Details sichtbar lassen",
-    helpDocKeepDetailsVisibleDescription:
-      "Stellen Sie sicher, dass Sie keine Teile der Karte mit einem Finger verdecken, einschließlich der unteren Zeilen. Achten Sie auch auf Hologramm-Reflexionen, die über die Kartenfelder gehen.",
-    helpDocAvoidHarshLightTitle: "Achten Sie auf starkes Licht",
-    helpDocAvoidHarshLightDescription:
-      "Vermeiden Sie direktes, starkes Licht, da es von der Karte reflektiert wird und Teile der Karte unlesbar machen kann. Wenn Sie Daten auf der Karte nicht lesen können, sind diese auch für die Kamera nicht sichtbar.",
-    helpDocKeepStillTitle: "Beim Scannen ruhig halten",
-    helpDocKeepStillDescription:
-      "Versuchen Sie, Telefon und Karte beim Scannen ruhig zu halten. Bewegungen können das Bild verwischen und Daten auf der Karte unlesbar machen.",
-    cameraDisabled: "Kamera deaktiviert",
-    cameraNotAllowed: "Zugriff auf Kamera nicht möglich.",
-    cameraInUse: "Kamera wird bereits von einer anderen Anwendung verwendet.",
-    cameraGenericError: "Zugriff auf Kamera nicht möglich.",
-    cameraFeedbackScanFront: "Vorderseite der Karte scannen",
-    cameraFeedbackScanBack: "Rückseite der Karte scannen",
-    cameraFeedbackFlip: "Zur Rückseite umdrehen",
-    cameraFeedbackBarcodeMessage: "Barcode scannen",
-    cameraFeedbackMoveFarther: "Weiter entfernen",
-    cameraFeedbackMoveCloser: "Näher herangehen",
-    cameraFeedbackAdjustAngle: "Karte parallel zum Bildschirm halten",
-    cameraFeedbackWrongSide: "Karte umdrehen",
-    cameraFeedbackBarcode: "Barcode scannen",
-    initializationError: "Fehler beim Laden der Komponente. Versuchen Sie ein anderes Gerät zu verwenden oder Ihren Browser zu aktualisieren.",
-    modalWindowClose: "Schließen",
-    checkInternetConnection: "Internetverbindung prüfen.",
-    networkError: "Netzwerkfehler.",
-    scanningNotAvailable: "Scannen nicht verfügbar.",
+    feedbackUi: {
+      feedback_messages: {
+        blur_detected: "Halten Sie Karte und Telefon still",
+        blur_detected_desktop: "Halten Sie Karte und Gerät still",
+        camera_angle_too_steep: "Halten Sie die Karte parallel zum Telefon",
+        camera_angle_too_steep_desktop: "Halten Sie die Karte parallel zum Bildschirm",
+        card_number_scanned: "Erfolg! Die Seite mit der Kartennummer wurde gescannt",
+        card_scanned: "Erfolg! Karte gescannt",
+        document_too_close_to_edge: "Weiter weg bewegen",
+        flip_card: "Drehen Sie die Karte um",
+        flip_to_back_side: "Drehen Sie die Karte um",
+        move_closer: "Näher herangehen",
+        move_farther: "Weiter weg bewegen",
+        occluded: "Halten Sie die Karte vollständig sichtbar",
+        scan_the_back_side: "Scannen Sie die andere Seite der Karte",
+        scan_the_front_side: "Scannen Sie die Kartennummer",
+      },
+      help_button: {
+        aria_label: "Hilfe",
+        tooltip: "Brauchen Sie Hilfe?",
+      },
+      help_modal: {
+        aria: "Hilfe zum Scannen",
+        back_btn: "Zurück",
+        blur: {
+          details:
+            "Versuchen Sie, Telefon und Karte während des Scannens still zu halten. Bewegungen können das Bild unscharf machen und die Daten auf der Karte unlesbar machen.",
+          details_desktop:
+            "Versuchen Sie, Gerät und Karte während des Scannens still zu halten. Bewegungen können das Bild unscharf machen und die Daten auf der Karte unlesbar machen.",
+          title: "Halten Sie beim Scannen still",
+        },
+        camera_lens: {
+          details:
+            "Überprüfen Sie Ihr Kameraobjektiv auf Flecken oder Staub. Ein schmutziges Objektiv führt dazu, dass das endgültige Bild unscharf wird, die Kartendetails unlesbar werden und ein erfolgreicher Scan der Daten verhindert wird.",
+          title: "Reinigen Sie Ihr Kameraobjektiv",
+        },
+        card_number: {
+          details:
+            "Die Kartennummer ist in der Regel eine 16-stellige Nummer, obwohl sie zwischen 12 und 19 Stellen haben kann. Sie sollte entweder aufgedruckt oder in erhabenen Zahlen auf der Karte geprägt sein. Sie kann sich auf der Vorder- oder Rückseite Ihrer Karte befinden.",
+          title: "Wo befindet sich die Kartennummer?",
+        },
+        done_btn: "Fertig",
+        done_btn_aria: "Scannen fortsetzen",
+        lighting: {
+          details:
+            "Vermeiden Sie direktes grelles Licht, da es von der Karte reflektiert wird und Teile der Karte unlesbar machen kann. Wenn Sie Daten auf der Karte nicht lesen können, sind sie auch für die Kamera nicht sichtbar.",
+          title: "Achten Sie auf grelles Licht",
+        },
+        next_btn: "Weiter",
+        occlusion: {
+          details:
+            "Stellen Sie sicher, dass Sie keine Teile der Karte mit einem Finger verdecken, einschließlich der unteren Zeilen. Achten Sie auch auf Hologrammreflexionen, die über die Felder der Karte gehen.",
+          title: "Halten Sie alle Felder sichtbar",
+        },
+      },
+      onboarding_modal: {
+        aria: "Scananweisungen",
+        btn: "Scannen starten",
+        details:
+          "Die Kartennummer ist in der Regel eine 16-stellige Nummer. Sie sollte entweder aufgedruckt oder in erhabenen Zahlen auf der Karte geprägt sein. Stellen Sie sicher, dass die Karte gut beleuchtet ist und alle Details sichtbar sind.",
+        details_desktop:
+          "Die Kartennummer ist in der Regel eine 16-stellige Nummer. Sie sollte entweder aufgedruckt oder in erhabenen Zahlen auf der Karte geprägt sein. Stellen Sie sicher, dass Ihr Kameraobjektiv sauber ist, die Karte gut beleuchtet ist und alle Details sichtbar sind.",
+        title: "Scannen Sie zuerst die Kartennummer",
+      },
+      sdk_aria: "Bildschirm zum Scannen von Karten",
+      timeout_modal: {
+        cancel_btn: "Abbrechen",
+        details: "Karte kann nicht gelesen werden. Bitte versuchen Sie es erneut.",
+        retry_btn: "Wiederholen",
+        title: "Scan nicht erfolgreich",
+      },
+    },
+    cameraUi: {
+      camera_error_cancel_btn: "Abbrechen",
+      camera_error_details: "Bitte erlauben Sie den Kamerazugriff in Ihrem Browser und versuchen Sie es erneut.",
+      camera_error_primary_btn: "Wiederholen",
+      camera_error_title: "Kameraberechtigung erforderlich",
+      close: "Schließen",
+      dialog_title: "Ein Dokument scannen",
+      loading_cameras: "Kameras werden geladen...",
+      mirror_camera: "Kamera spiegeln",
+      select_a_camera: "Wählen Sie eine Kamera aus",
+      select_camera: "Kamera auswählen",
+      selected_camera: "Ausgewählte Kamera",
+      torch: "Taschenlampe",
+    },
   },
   manualInput: {
     formTitle: "Weitere Details hinzufügen",
@@ -372,6 +425,7 @@ const croatianTranslations = {
     lookDirectylIntoCamera: "Gledajte ravno u kameru",
     onlyOneFaceShouldBeVisible: "Samo jedno lice treba biti vidljivo",
     keepStill: "Ostanite mirni",
+    cameraStarting: "Pokretanje kamere...",
   },
   documentScanning: {
     cameraLoading: "Kamera se učitava",
@@ -416,42 +470,93 @@ const croatianTranslations = {
     cameraFeedbackScanLastPageBarcode: "Skenirajte cijelu posljednju stranicu s barkodom.",
   },
   cardScanning: {
-    cameraLoading: "Učitavanje kamere",
-    helpButtonTooltip: "Trebate pomoć?",
-    helpButtonBack: "Natrag",
-    helpButtonNext: "Dalje",
-    helpButtonDone: "Gotovo",
-    helpButtonStartScanning: "Pokreni skeniranje",
-    helpDocInfoTitle: "Prvo skenirajte broj kartice",
-    helpDocInfoDescription:
-      "Broj kartice obično je 16-znamenkasti i trebao bi biti otisnut ili reljefno ispisan preko kartice. Provjerite je li kartica dobro osvijetljena i svi detalji vidljivi.",
-    helpDocKeepDetailsVisibleTitle: "Neka svi detalji budu vidljivi",
-    helpDocKeepDetailsVisibleDescription:
-      "Pazite da ne prekrivate dijelove kartice prstom, uključujući donje linije. Također, pripazite na odsjaje holograma koji prelaze preko polja kartice.",
-    helpDocAvoidHarshLightTitle: "Pripazite na jako svjetlo",
-    helpDocAvoidHarshLightDescription:
-      "Izbjegavajte izravno, jako svjetlo jer se odbija od kartice i može učiniti dijelove kartice nečitljivima. Ako ne možete pročitati podatke na kartici, neće biti vidljivi ni kameri.",
-    helpDocKeepStillTitle: "Budite mirni tijekom skeniranja",
-    helpDocKeepStillDescription:
-      "Pokušajte držati telefon i karticu mirno tijekom skeniranja. Pomicanje bilo čega može zamutiti sliku i učiniti podatke na kartici nečitljivima.",
-    cameraDisabled: "Kamera je onemogućena",
-    cameraNotAllowed: "Nije moguće pristupiti kameri.",
-    cameraInUse: "Kameru već koristi druga aplikacija.",
-    cameraGenericError: "Nije moguće pristupiti kameri.",
-    cameraFeedbackScanFront: "Skenirajte prednju stranu kartice",
-    cameraFeedbackScanBack: "Skenirajte stražnju stranu kartice",
-    cameraFeedbackFlip: "Okrenite na stražnju stranu",
-    cameraFeedbackBarcodeMessage: "Skenirajte barkod",
-    cameraFeedbackMoveFarther: "Udaljite se",
-    cameraFeedbackMoveCloser: "Približite se",
-    cameraFeedbackAdjustAngle: "Držite karticu paralelno s ekranom",
-    cameraFeedbackWrongSide: "Okrenite karticu",
-    cameraFeedbackBarcode: "Skenirajte barkod",
-    initializationError: "Nije uspjelo učitavanje komponente. Pokušajte koristiti drugi uređaj ili ažurirajte preglednik.",
-    modalWindowClose: "Zatvori",
-    checkInternetConnection: "Provjerite internetsku vezu.",
-    networkError: "Greška mreže.",
-    scanningNotAvailable: "Skeniranje nije dostupno.",
+    cameraLoading: "Kamera se učitava",
+    feedbackUi: {
+      feedback_messages: {
+        blur_detected: "Držite karticu i telefon mirno",
+        blur_detected_desktop: "Držite karticu i uređaj mirno",
+        camera_angle_too_steep: "Držite karticu paralelno s telefonom",
+        camera_angle_too_steep_desktop: "Držite karticu paralelno sa zaslonom",
+        card_number_scanned: "Uspjeh! Strana s brojem kartice je skenirana",
+        card_scanned: "Uspjeh! Kartica je skenirana",
+        document_too_close_to_edge: "Udaljite",
+        flip_card: "Okrenite karticu",
+        flip_to_back_side: "Okrenite karticu",
+        move_closer: "Približite",
+        move_farther: "Udaljite",
+        occluded: "Držite karticu potpuno vidljivom",
+        scan_the_back_side: "Skenirajte drugu stranu kartice",
+        scan_the_front_side: "Skenirajte broj kartice",
+      },
+      help_button: {
+        aria_label: "Pomoć",
+        tooltip: "Trebate pomoć?",
+      },
+      help_modal: {
+        aria: "Pomoć pri skeniranju",
+        back_btn: "Natrag",
+        blur: {
+          details:
+            "Pokušajte držati telefon i karticu mirno tijekom skeniranja. Pomicanje bilo kojeg od njih može zamutiti sliku i učiniti podatke na kartici nečitljivima.",
+          details_desktop:
+            "Pokušajte držati uređaj i karticu mirno tijekom skeniranja. Pomicanje bilo kojeg od njih može zamutiti sliku i učiniti podatke na kartici nečitljivima.",
+          title: "Mirujte tijekom skeniranja",
+        },
+        camera_lens: {
+          details:
+            "Provjerite ima li na objektivu kamere mrlja ili prašine. Prljav objektiv uzrokuje zamućenje konačne slike, čineći detalje kartice nečitljivima i sprječavajući uspješno skeniranje podataka.",
+          title: "Očistite objektiv kamere",
+        },
+        card_number: {
+          details:
+            "Broj kartice obično je 16-znamenkasti broj, iako može imati između 12 i 19 znamenki. Trebao bi biti ispisan ili reljefno otisnut na kartici. Može se nalaziti na prednjoj ili stražnjoj strani kartice.",
+          title: "Gdje je broj kartice?",
+        },
+        done_btn: "Gotovo",
+        done_btn_aria: "Nastavi skeniranje",
+        lighting: {
+          details:
+            "Izbjegavajte izravno jako svjetlo jer se reflektira od kartice i može učiniti dijelove kartice nečitljivima. Ako ne možete pročitati podatke na kartici, neće biti vidljivi ni kameri.",
+          title: "Pazite na jako svjetlo",
+        },
+        next_btn: "Dalje",
+        occlusion: {
+          details:
+            "Pazite da ne prekrivate dijelove kartice prstom, uključujući donje linije. Također, pripazite na refleksije holograma koje prelaze preko polja na kartici.",
+          title: "Držite sva polja vidljivima",
+        },
+      },
+      onboarding_modal: {
+        aria: "Upute za skeniranje",
+        btn: "Započni skeniranje",
+        details:
+          "Broj kartice obično je 16-znamenkasti broj. Trebao bi biti ispisan ili reljefno otisnut na kartici. Provjerite je li kartica dobro osvijetljena i jesu li svi detalji vidljivi.",
+        details_desktop:
+          "Broj kartice obično je 16-znamenkasti broj. Trebao bi biti ispisan ili reljefno otisnut na kartici. Provjerite je li objektiv kamere čist, kartica dobro osvijetljena i svi detalji vidljivi.",
+        title: "Prvo skenirajte broj kartice",
+      },
+      sdk_aria: "Zaslon za skeniranje kartice",
+      timeout_modal: {
+        cancel_btn: "Odustani",
+        details: "Nije moguće pročitati karticu. Molimo pokušajte ponovno.",
+        retry_btn: "Pokušaj ponovno",
+        title: "Skeniranje neuspješno",
+      },
+    },
+    cameraUi: {
+      camera_error_cancel_btn: "Odustani",
+      camera_error_details: "Molimo dopustite pristup kameri u vašem pregledniku i pokušajte ponovno.",
+      camera_error_primary_btn: "Pokušaj ponovno",
+      camera_error_title: "Potrebna dozvola za kameru",
+      close: "Zatvori",
+      dialog_title: "Skeniraj dokument",
+      loading_cameras: "Učitavanje kamera...",
+      mirror_camera: "Zrcali kameru",
+      select_a_camera: "Odaberite kameru",
+      select_camera: "Odaberi kameru",
+      selected_camera: "Odabrana kamera",
+      torch: "Svjetiljka",
+    },
   },
   manualInput: {
     formTitle: "Dodaj više detalja",
@@ -648,6 +753,7 @@ const spanishTranslations = {
     lookDirectylIntoCamera: "Mira directamente a la cámara",
     onlyOneFaceShouldBeVisible: "Solo debe ser visible un rostro",
     keepStill: "Mantente quieto",
+    cameraStarting: "Iniciando la cámara...",
   },
   documentScanning: {
     cameraLoading: "Cargando la cámara",
@@ -694,41 +800,92 @@ const spanishTranslations = {
   },
   cardScanning: {
     cameraLoading: "Cargando cámara",
-    helpButtonTooltip: "¿Necesitas ayuda?",
-    helpButtonBack: "Atrás",
-    helpButtonNext: "Siguiente",
-    helpButtonDone: "Listo",
-    helpButtonStartScanning: "Iniciar escaneo",
-    helpDocInfoTitle: "Primero escanee el número de tarjeta",
-    helpDocInfoDescription:
-      "El número de tarjeta suele tener 16 dígitos y debe estar impreso o grabado en relieve en la tarjeta. Asegúrese de que la tarjeta esté bien iluminada y todos los detalles sean visibles.",
-    helpDocKeepDetailsVisibleTitle: "Mantenga todos los detalles visibles",
-    helpDocKeepDetailsVisibleDescription:
-      "Asegúrese de no cubrir partes de la tarjeta con un dedo, incluidas las líneas inferiores. Además, tenga cuidado con los reflejos de hologramas que cubran los campos de la tarjeta.",
-    helpDocAvoidHarshLightTitle: "Cuidado con la luz fuerte",
-    helpDocAvoidHarshLightDescription:
-      "Evite la luz directa y fuerte, ya que se refleja en la tarjeta y puede hacer que partes de la misma sean ilegibles. Si no puede leer los datos de la tarjeta, tampoco serán visibles para la cámara.",
-    helpDocKeepStillTitle: "Manténgase quieto mientras escanea",
-    helpDocKeepStillDescription:
-      "Intente mantener el teléfono y la tarjeta quietos mientras escanea. Mover cualquiera de ellos puede difuminar la imagen y hacer que los datos de la tarjeta sean ilegibles.",
-    cameraDisabled: "Cámara deshabilitada",
-    cameraNotAllowed: "No se puede acceder a la cámara.",
-    cameraInUse: "La cámara ya está siendo utilizada por otra aplicación.",
-    cameraGenericError: "No se puede acceder a la cámara.",
-    cameraFeedbackScanFront: "Escanee la parte frontal de una tarjeta",
-    cameraFeedbackScanBack: "Escanee la parte trasera de una tarjeta",
-    cameraFeedbackFlip: "Girar a la parte trasera",
-    cameraFeedbackBarcodeMessage: "Escanear el código de barras",
-    cameraFeedbackMoveFarther: "Aléjate más",
-    cameraFeedbackMoveCloser: "Acércate más",
-    cameraFeedbackAdjustAngle: "Mantén la tarjeta paralela a la pantalla",
-    cameraFeedbackWrongSide: "Girar la tarjeta",
-    cameraFeedbackBarcode: "Escanear el código de barras",
-    initializationError: "Error al cargar el componente. Intente usar otro dispositivo o actualice su navegador.",
-    modalWindowClose: "Cerrar",
-    checkInternetConnection: "Comprobar conexión a internet.",
-    networkError: "Error de red.",
-    scanningNotAvailable: "Escaneo no disponible.",
+    feedbackUi: {
+      feedback_messages: {
+        blur_detected: "Mantén la tarjeta y el teléfono quietos",
+        blur_detected_desktop: "Mantén la tarjeta y el dispositivo quietos",
+        camera_angle_too_steep: "Mantén la tarjeta paralela al teléfono",
+        camera_angle_too_steep_desktop: "Mantén la tarjeta paralela a la pantalla",
+        card_number_scanned: "¡Éxito! Lado del número de tarjeta escaneado",
+        card_scanned: "¡Éxito! Tarjeta escaneada",
+        document_too_close_to_edge: "Aléjalo",
+        flip_card: "Dale la vuelta a la tarjeta",
+        flip_to_back_side: "Dale la vuelta a la tarjeta",
+        move_closer: "Acércalo",
+        move_farther: "Aléjalo",
+        occluded: "Mantén la tarjeta completamente visible",
+        scan_the_back_side: "Escanea el otro lado de la tarjeta",
+        scan_the_front_side: "Escanea el número de la tarjeta",
+      },
+      help_button: {
+        aria_label: "Ayuda",
+        tooltip: "¿Necesitas ayuda?",
+      },
+      help_modal: {
+        aria: "Ayuda para escanear",
+        back_btn: "Atrás",
+        blur: {
+          details:
+            "Intenta mantener el teléfono y la tarjeta quietos mientras escaneas. Mover cualquiera de los dos puede desenfocar la imagen y hacer que los datos de la tarjeta sean ilegibles.",
+          details_desktop:
+            "Intenta mantener el dispositivo y la tarjeta quietos mientras escaneas. Mover cualquiera de los dos puede desenfocar la imagen y hacer que los datos de la tarjeta sean ilegibles.",
+          title: "Mantente quieto al escanear",
+        },
+        camera_lens: {
+          details:
+            "Revisa la lente de tu cámara en busca de manchas o polvo. Una lente sucia hace que la imagen final se desenfoque, lo que hace que los detalles de la tarjeta sean ilegibles y evita que los datos se escaneen correctamente.",
+          title: "Limpia la lente de tu cámara",
+        },
+        card_number: {
+          details:
+            "El número de tarjeta suele ser un número de 16 dígitos, aunque puede tener entre 12 y 19 dígitos. Debe estar impreso o en relieve con números elevados en la tarjeta. Puede estar en el anverso o en el reverso de tu tarjeta.",
+          title: "¿Dónde está el número de tarjeta?",
+        },
+        done_btn: "Hecho",
+        done_btn_aria: "Reanudar escaneo",
+        lighting: {
+          details:
+            "Evita la luz directa y fuerte porque se refleja en la tarjeta y puede hacer que algunas partes sean ilegibles. Si no puedes leer los datos de la tarjeta, tampoco serán visibles para la cámara.",
+          title: "Cuidado con la luz fuerte",
+        },
+        next_btn: "Siguiente",
+        occlusion: {
+          details:
+            "Asegúrate de no cubrir partes de la tarjeta con un dedo, incluidas las líneas inferiores. Además, ten cuidado con los reflejos de hologramas que pasan sobre los campos de la tarjeta.",
+          title: "Mantén todos los campos visibles",
+        },
+      },
+      onboarding_modal: {
+        aria: "Instrucciones de escaneo",
+        btn: "Comenzar a escanear",
+        details:
+          "El número de tarjeta suele ser un número de 16 dígitos. Debe estar impreso o en relieve con números elevados en la tarjeta. Asegúrate de que la tarjeta esté bien iluminada y que todos los detalles sean visibles.",
+        details_desktop:
+          "El número de tarjeta suele ser un número de 16 dígitos. Debe estar impreso o en relieve con números elevados en la tarjeta. Asegúrate de que la lente de tu cámara esté limpia, la tarjeta esté bien iluminada y todos los detalles sean visibles.",
+        title: "Escanea el número de tarjeta primero",
+      },
+      sdk_aria: "Pantalla de escaneo de tarjetas",
+      timeout_modal: {
+        cancel_btn: "Cancelar",
+        details: "No se puede leer la tarjeta. Por favor, inténtalo de nuevo.",
+        retry_btn: "Reintentar",
+        title: "Escaneo fallido",
+      },
+    },
+    cameraUi: {
+      camera_error_cancel_btn: "Cancelar",
+      camera_error_details: "Por favor, permite el acceso a la cámara en tu navegador e inténtalo de nuevo.",
+      camera_error_primary_btn: "Reintentar",
+      camera_error_title: "Permiso de cámara requerido",
+      close: "Cerrar",
+      dialog_title: "Escanear un documento",
+      loading_cameras: "Cargando cámaras...",
+      mirror_camera: "Cámara espejo",
+      select_a_camera: "Selecciona una cámara",
+      select_camera: "Seleccionar cámara",
+      selected_camera: "Cámara seleccionada",
+      torch: "Linterna",
+    },
   },
   manualInput: {
     formTitle: "Añadir más detalles",
