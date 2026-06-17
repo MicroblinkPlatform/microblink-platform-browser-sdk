@@ -1,3 +1,18 @@
+## v1.10.1
+
+Translation fixes — BlinkID upgrade
+
+Fixed several translation keys introduced in the new BlinkID version that were not being mapped or exposed, causing only the English default to display regardless of the selected language.
+
+New keys added (DE, HR, ES + EN default):
+
+- cameraFeedbackOccluded — "Keep the document fully visible" — shown when the document is partially covered
+- cameraFeedbackTooDark — "Move to brighter spot" — shown when lighting is insufficient
+- cameraFeedbackTooBright — "Move to spot with less lighting" — shown when there is too much light
+- helpDocInfoTitleDesktop — "Get ready to scan" — onboarding modal title on desktop
+- helpDocInfoDescriptionDesktop — "Make sure you keep your camera lens clean..." — onboarding modal body on desktop
+- scanUnsuccessfulTitle — "Scan unsuccessful" — timeout modal title
+
 ## v1.10.0
 
 ### Updates
