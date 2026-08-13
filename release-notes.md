@@ -1,3 +1,8 @@
+## v1.10.3
+Improvements
+
+Payload Image Format Optimization: We have transitioned the paylaod image format from PNG to JPEG for the Scan & Verify and Scan ID capabilities.
+
 ## v1.10.2
 
 Translation fixes — BlinkID upgrade
